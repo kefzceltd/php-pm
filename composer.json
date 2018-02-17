@@ -1,5 +1,6 @@
 {
     "name": "php-pm/php-pm",
+    "description": "PHP-PM is a process manager, supercharger and load balancer for PHP applications.",
     "license": "MIT",
     "require": {
         "php": ">=5.6.0",
@@ -32,10 +33,9 @@
         ]
     },
     "suggest": {
-        "php-pm/httpkernel-adapter": "HttpKernel adapter for Symfony and Laravel frameworks",
-        "ext-libevent": "Allows for use of a more performant event-loop implementation.",
-        "ext-libev": "Allows for use of a more performant event-loop implementation.",
-        "ext-event": "Allows for use of a more performant event-loop implementation."
+        "php-pm/httpkernel-adapter": "HttpKernel adapter for Symfony and Laravel frameworks"
     },
-    "bin": ["bin/ppm"]
+    "bin": [
+        "bin/ppm"
+    ]
 }

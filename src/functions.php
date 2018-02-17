@@ -2,8 +2,6 @@
 
 namespace PHPPM;
 
-use PHPPM\ProcessSlave;
-
 /**
  * Adds a file path to the watcher list of PPM's master process.
  *
@@ -27,7 +25,7 @@ function register_file($path)
 function console_log($expression, $_ = null)
 {
     ob_start();
-    call_user_func_array('var_dump', func_get_args());
+    var_dump(...func_get_args());
     file_put_contents('php://stderr', ob_get_clean() . PHP_EOL, FILE_APPEND);
 }
 
@@ -38,7 +36,7 @@ function console_log($expression, $_ = null)
  */
 function pcntl_enabled()
 {
-    $requiredFunctions = array('pcntl_signal', 'pcntl_signal_dispatch', 'pcntl_waitpid');
+    $requiredFunctions = ['pcntl_signal', 'pcntl_signal_dispatch', 'pcntl_waitpid'];
     $disabledFunctions = explode(',', (string) ini_get('disable_functions'));
     $disabledFunctions = array_map(function ($item) {
         return trim($item);

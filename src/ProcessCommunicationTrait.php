@@ -29,7 +29,7 @@ trait ProcessCommunicationTrait
         $array = json_decode($data, true);
 
         $method = 'command' . ucfirst($array['cmd']);
-        if (is_callable(array($this, $method))) {
+        if (is_callable([$this, $method])) {
             $this->$method($array, $conn);
         } else {
             throw new \Exception(sprintf('Command %s not found. Got %s', $method, $data));
@@ -93,7 +93,8 @@ trait ProcessCommunicationTrait
             $run .= '/';
         }
 
-        if (!is_dir($run) && !mkdir($run, 0777, true)) {
+        /* https://github.com/kalessil/phpinspectionsea/blob/master/docs/probable-bugs.md#mkdir-race-condition */
+        if (!is_dir($run) && !mkdir($run, 0777, true) && !is_dir($run)) {
             throw new \RuntimeException(sprintf('Could not create %s folder.', $run));
         }
 
