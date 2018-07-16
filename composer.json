@@ -7,7 +7,7 @@
         "ext-pcntl":"*",
         "symfony/console": "^2.6|^3.0",
         "symfony/debug": "^4.0.6",
-        "symfony/process": "^2.6|^3.0",
+        "symfony/process": "^4.0.9",
         "react/event-loop": "^0.4",
         "react/stream": "^0.7.1",
         "react/http": "^0.8",
